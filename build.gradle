@@ -1,0 +1,35 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+version = '0.1'
+mainClassName = 'com.example.offline.OfflineApplication'
+
+project.ext {
+    dropwizardVersion = '0.8.1'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile (
+        'io.dropwizard:dropwizard-core:' + dropwizardVersion,
+        'io.dropwizard:dropwizard-jdbi:' + dropwizardVersion,
+        'io.dropwizard:dropwizard-views-freemarker:' + dropwizardVersion,
+        'io.dropwizard:dropwizard-assets:' + dropwizardVersion,
+        'com.h2database:h2:1.4.187'
+    )
+}
+
+run {
+    args 'server', 'config.yml'
+}
+
+task stage(dependsOn: installApp) {
+}
