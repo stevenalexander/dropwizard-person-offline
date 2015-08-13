@@ -1,0 +1,1 @@
+web: export JAVA_OPTS=-Ddw.server.connector.port=$PORT && build/install/offline/bin/offline server config.yml
