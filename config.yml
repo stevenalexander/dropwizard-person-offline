@@ -1,8 +1,28 @@
 server:
   type: simple
-  rootPath: '/api/*'
+  rootPath: '/persons/*'
   applicationContextPath: /
   adminContextPath: /admin
   connector:
     type: http
     port: 8090
+
+database:
+  driverClass: org.h2.Driver
+  user: sa
+#  password:
+  url: jdbc:h2:./persondb
+  properties:
+    charSet: UTF-8
+  maxWaitForConnection: 1s
+  validationQuery: "/* MyService Health Check */ SELECT 1"
+  minSize: 8
+  maxSize: 32
+  checkConnectionWhileIdle: false
+  evictionInterval: 10s
+  minIdleTime: 1 minute
+
+viewRendererConfiguration:
+  .ftl:
+    strict_syntax: yes
+    whitespace_stripping: yes

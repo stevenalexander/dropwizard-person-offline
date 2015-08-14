@@ -18,13 +18,13 @@ self.onactivate = function(event) {
   console.log('Activated!');
 };
 
-self.onfetch = function(event) {
-  console.log('Fetching!: ' + event.request.url);
-  var requestURL = new URL(event.request.url);
-
-  event.respondWith(
-    caches.match(event.request, {
-      ignoreVary: true
-    })
-  );
-};
+//self.onfetch = function(event) {
+//  console.log('Fetching!: ' + event.request.url);
+//  var requestURL = new URL(event.request.url);
+//
+//  event.respondWith(
+//    caches.match(event.request, {
+//      ignoreVary: true
+//    })
+//  );
+//};
