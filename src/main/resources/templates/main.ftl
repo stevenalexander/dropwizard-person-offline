@@ -16,7 +16,7 @@
   <script src="/js/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="/js/libs/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/assets/favicon.ico">
 </head>
 <body>
 

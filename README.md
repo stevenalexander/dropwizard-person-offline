@@ -28,7 +28,9 @@ responses from the cache to avoid client issues when the user loses connection, 
 
 Requires NPM.
 
-Testing locally can be difficult, as requests to localhost will be handled locally s
+Testing locally can be difficult, as disconnecting your wifi/network will not affect requests to localhost. Instead you
+can use localtunnel to create a temporary tunnel to the port on your machine and open/close it to simulate the effect of
+losing connection.
 
 ```
 # install localtunnel
