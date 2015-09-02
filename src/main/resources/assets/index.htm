@@ -20,7 +20,7 @@
   <script src="/js/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="/js/libs/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-  <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+  <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script><!--NO-JS check-->
   <link rel="icon" href="/assets/favicon.ico">
 </head>
 <body>
@@ -43,8 +43,6 @@
 
 <div class="container">
 
-  <h1>Persons with offline support</h1>
-
   <div id="no-js-text" class="has-error">
     <span class="help-block">You have Javascript disabled, which breaks Service Worker functionality and will prevent offline functionality</span>
   </div>
@@ -52,6 +50,12 @@
   <div id="no-service-worker-text" class="has-error" style="display:none;">
     <span class="help-block">Your browser does not support or cannot run the Service Worker necessary to provide offline functionality</span>
   </div>
+
+  <div id="offline-text" class="has-warning" style="display:none;">
+    <span class="help-block">You are currently offline viewing cached content</span>
+  </div>
+
+  <h1>Persons with offline support</h1>
 
   <a href="/persons">View Persons</a>
 

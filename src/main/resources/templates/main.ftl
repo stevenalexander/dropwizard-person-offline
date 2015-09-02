@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,12 +10,17 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" href="/css/bootstrap/3.3.4/bootstrap.min.css">
 
+  <style type="text/css">
+    .js #no-js-text {display:none;}
+  </style>
+
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
   <script src="/js/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="/js/libs/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
   <link rel="icon" href="/assets/favicon.ico">
 </head>
 <body>
@@ -37,6 +42,18 @@
 </nav>
 
 <div class="container">
+
+  <div id="no-js-text" class="has-error">
+    <span class="help-block">You have Javascript disabled, which breaks Service Worker functionality and will prevent offline functionality</span>
+  </div>
+
+  <div id="no-service-worker-text" class="has-error" style="display:none;">
+    <span class="help-block">Your browser does not support or cannot run the Service Worker necessary to provide offline functionality</span>
+  </div>
+
+  <div id="offline-text" class="has-warning" style="display:none;">
+    <span class="help-block">You are currently offline viewing cached content</span>
+  </div>
 
   <@page_body/>
 

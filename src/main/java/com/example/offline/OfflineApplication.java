@@ -2,6 +2,7 @@ package com.example.offline;
 
 import com.example.offline.configuration.OfflineConfiguration;
 import com.example.offline.dao.PersonDao;
+import com.example.offline.resources.HeartbeatResource;
 import com.example.offline.resources.PersonResource;
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
@@ -55,7 +56,9 @@ public class OfflineApplication extends Application<OfflineConfiguration> {
         }
 
         final PersonResource personResource = new PersonResource(personDao);
+        final HeartbeatResource heartbeatResource = new HeartbeatResource();
 
         environment.jersey().register(personResource);
+        environment.jersey().register(heartbeatResource);
     }
 }
