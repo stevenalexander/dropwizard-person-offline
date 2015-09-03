@@ -69,25 +69,19 @@ function getCachedPage(request) {
 function fetchAndCacheWithCacheAsBackup(request) {
   return fetch(request).then(function(response) {
     if (response) {
+      var clonedResponse = response.clone();
       caches.open(CACHE_NAME).then(function(cache) {
         console.log('Cached request: ' + request.url);
-        markOfflineContent(response.clone()).then(function(modifiedResponse) {
+        markOfflineContent(clonedResponse).then(function(modifiedResponse) {
           cache.put(request, modifiedResponse);
         });
       });
       console.log('Fetched request: ' + request.url);
       return response;
     }
-
-    return caches.match(request).then(function(cachedResponse) {
-      console.log('Using cached response: ' + request.url);
-      return cachedResponse;
-    });
+    return retrieveFromCache(request);
   }, function(error) {
-    return caches.match(request).then(function(cachedResponse) {
-        console.log('Using cached response: ' + request.url);
-        return cachedResponse;
-    });
+    return retrieveFromCache(request);
   });
 }
 
@@ -97,16 +91,26 @@ function fetchWithUnavailableAsBackup(request) {
       console.log('Fetched request: ' + request.url);
       return response;
     }
-
-    return caches.match(CACHE_UNAVAILABLE).then(function(cachedResponse) {
-      console.log('Using unavailable response: ' + request.url);
-      return cachedResponse;
-    });
+    return retrieveUnavailableFromCache();
   }, function(error) {
-   return caches.match(CACHE_UNAVAILABLE).then(function(cachedResponse) {
-       console.log('Using unavailable response: ' + request.url);
-       return cachedResponse;
-   });
+   return retrieveUnavailableFromCache();
+  });
+}
+
+function retrieveFromCache(request) {
+  return caches.match(request).then(function(cachedResponse) {
+    if (cachedResponse) {
+      console.log('Using cached response: ' + request.url);
+      return cachedResponse;
+    }
+    return retrieveUnavailableFromCache();
+  });
+}
+
+function retrieveUnavailableFromCache() {
+  return caches.match(CACHE_UNAVAILABLE).then(function(cachedResponse) {
+    console.log('Using unavailable response');
+    return cachedResponse;
   });
 }
 
