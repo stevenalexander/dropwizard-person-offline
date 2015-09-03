@@ -5,13 +5,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Offline support via Service Worker</title>
+  <title>Offline support via Service Worker - unavailable</title>
 
   <!-- Bootstrap -->
   <link rel="stylesheet" href="/css/bootstrap/3.3.4/bootstrap.min.css">
 
   <style type="text/css">
-    .js #no-js-text, #hide-offline-text, .hide {display:none;}
+    .js #no-js-text {display:none;}
   </style>
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -20,7 +20,7 @@
   <script src="/js/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="/js/libs/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-  <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+  <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script><!--NO-JS check-->
   <link rel="icon" href="/assets/favicon.ico">
 </head>
 <body>
@@ -51,11 +51,19 @@
     <span class="help-block">Your browser does not support or cannot run the Service Worker necessary to provide offline functionality</span>
   </div>
 
-  <div id="hide-offline-text" class="has-warning">
-    <span class="help-block">You are currently offline viewing cached content from CACHE_DATETIME</span>
+  <div id="offline-text" class="has-warning" style="display:none;">
+    <span class="help-block">You are currently offline viewing cached content</span>
   </div>
 
-  <@page_body/>
+  <h1>Persons with offline support</h1>
+
+  <h2>Unavailable</h2>
+
+  <div id="unavailable" class="has-error">
+    <span class="help-block">I'm sorry, you lost connection to our service. Please click the link below and try again</span>
+  </div>
+
+  <a href="/persons">View Persons</a>
 
   <hr>
 

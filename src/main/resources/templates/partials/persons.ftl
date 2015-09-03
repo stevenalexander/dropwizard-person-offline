@@ -11,6 +11,6 @@
 </ul>
 </#if>
 
-<a href="/persons/add">Add Person</a>
+<a href="/persons/add" class="offline-hide">Add Person</a>
 
 </#macro>

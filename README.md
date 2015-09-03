@@ -75,3 +75,4 @@ Service Worker will cache the response, allowing you to see the page offline.
 - [Service Worker draft specification](https://slightlyoff.github.io/ServiceWorker/spec/service_worker/index.html)
 - [W3C samples](https://github.com/w3c-webmob/ServiceWorkersDemos)
 - [Making Your App Work Offline: Tips and Cautionary Tales](https://quickleft.com/blog/making-your-app-work-offline-tips-and-cautionary-tales/)
+- [Tamper Requests With Service Workers](http://miguelcamba.com/blog/2015/02/15/how-to-tamper-requests-with-service-workers/)

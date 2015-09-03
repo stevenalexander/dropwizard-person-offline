@@ -18,6 +18,6 @@
   </div>
 </form>
 
-<a href="/persons/${person.id}/edit">Edit Person</a>
+<a href="/persons/${person.id}/edit" class="offline-hide">Edit Person</a>
 
 </#macro>
