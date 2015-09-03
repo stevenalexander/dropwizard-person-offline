@@ -6,7 +6,12 @@
 <#if persons?has_content>
 <ul>
 <#list persons as person>
-  <li><a href="/persons/${person.id}">${person.firstName} ${person.lastName}</a></li>
+  <li>
+    <form action="/persons/${person.id}/delete" method="POST">
+      <a href="/persons/${person.id}">${person.firstName} ${person.lastName}</a>
+      <button type="submit" class="btn btn-link offline-hide">delete</button>
+    </form>
+  </li>
 </#list>
 </ul>
 </#if>

@@ -118,9 +118,9 @@ function markOfflineContent(response) {
   // Response body is a stream so must be read then modified and turned into a blob
   return response.text().then(function(content) {
     var now = new Date();
-    var modifiedContent = content.replace("hide-offline-text", "offline-text");
-    var modifiedContent = modifiedContent.replace("CACHE_DATETIME", now.toLocaleDateString() + " " + now.toLocaleTimeString());
-    var modifiedContent = modifiedContent.replace("offline-hide", "hide");
+    var modifiedContent = content.replace(/ hide-offline-text/g, " offline-text");
+    var modifiedContent = modifiedContent.replace(/CACHE_DATETIME/g, now.toLocaleDateString() + " " + now.toLocaleTimeString());
+    var modifiedContent = modifiedContent.replace(/offline-hide/g, "hide");
     var blob = new Blob([modifiedContent], { type: 'text/html' });
     return new Response(blob, { headers: response.headers });
   });

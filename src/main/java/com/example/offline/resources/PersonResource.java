@@ -86,4 +86,13 @@ public class PersonResource {
 
         throw new WebApplicationException(Response.seeOther(UriBuilder.fromUri("/persons/" + personId).build()).build());
     }
+
+    @POST
+    @Path("/{personId}/delete")
+    public Response personDeleteSubmit(@PathParam("personId") int personId) {
+        LOGGER.info("deleting person");
+        personDao.deleteById(personId);
+
+        return Response.seeOther(UriBuilder.fromUri("/persons").build()).build();
+    }
 }

@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="/css/bootstrap/3.3.4/bootstrap.min.css">
 
   <style type="text/css">
-    .js #no-js-text, #hide-offline-text, .hide {display:none;}
+    .js #no-js-text, .hide-offline-text, .hide {display:none;}
   </style>
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -51,7 +51,7 @@
     <span class="help-block">Your browser does not support or cannot run the Service Worker necessary to provide offline functionality</span>
   </div>
 
-  <div id="hide-offline-text" class="has-warning">
+  <div id="offline-text" class="has-warning hide-offline-text">
     <span class="help-block">You are currently offline viewing cached content from CACHE_DATETIME</span>
   </div>
 
